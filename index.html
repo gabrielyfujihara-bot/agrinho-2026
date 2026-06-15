@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Forte, Futuro Sustentável</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f8f2;
+    color:#2c3e50;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(20,80,35,0.95);
+    backdrop-filter:blur(8px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+}
+
+.logo{
+    color:white;
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#8df58d;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:900px;
+    animation:fadeUp 1.2s ease;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 30px;
+    background:#4CAF50;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    background:#67c96d;
+}
+
+/* SECTION */
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    color:#1d5f30;
+    font-size:2.4rem;
+}
+
+.section-title p{
+    margin-top:10px;
+    color:#666;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#2e7d32;
+    margin-bottom:15px;
+}
+
+/* IMAGE SECTION */
+.image-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.image-section img{
+    width:100%;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.image-section h2{
+    color:#1f6d33;
+    margin-bottom:20px;
+}
+
+.image-section p{
+    line-height:1.9;
+    text-align:justify;
+}
+
+/* STATS */
+.stats{
+    background:linear-gradient(135deg,#1f6d33,#4CAF50);
+    color:white;
+}
+
+.stats-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat h3{
+    font-size:3rem;
+}
+
+.stat p{
+    margin-top:10px;
+}
+
+/* ADVICE */
+.advice{
+    background:white;
+}
+
+.advice-box{
+    max-width:1100px;
+    margin:auto;
+    line-height:2;
+    text-align:justify;
+    font-size:1.05rem;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.04);
+}
+
+/* FOOTER */
+footer{
+    background:#163f21;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.image-section{
+    grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"> Agro Forte</div>
+    <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#praticas">Práticas</a></li>
+        <li><a href="#conselhos">Conselhos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>
+            Produzir alimentos de qualidade e preservar os recursos naturais
+            são objetivos que podem caminhar juntos. O equilíbrio entre
+            agricultura, tecnologia e preservação ambiental é a chave para
+            garantir um futuro sustentável para as próximas gerações.
+        </p>
+
+        <a href="#sobre" class="btn">Saiba Mais</a>
+    </div>
+</section>
+
+<section id="sobre" class="reveal">
+    <div class="section-title">
+        <h2>Produção e Meio Ambiente em Harmonia</h2>
+        <p>Desenvolvimento econômico aliado à conservação da natureza.</p>
+    </div>
+
+    <div class="image-section">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80">
+
+        <div>
+            <h2>O papel da sustentabilidade no campo</h2>
+
+            <p>
+                A agricultura moderna desempenha uma função essencial na
+                alimentação mundial. Entretanto, produzir mais não significa
+                explorar mais os recursos naturais. A sustentabilidade rural
+                busca aumentar a produtividade utilizando técnicas eficientes,
+                reduzindo desperdícios e preservando o solo, a água e a
+                biodiversidade.
+            </p>
+
+            <br>
+
+            <p>
+                Com planejamento adequado, tecnologias inteligentes e gestão
+                ambiental responsável, é possível fortalecer o agronegócio,
+                gerar renda para produtores e ao mesmo tempo proteger os
+                ecossistemas que sustentam a própria atividade agrícola.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="praticas" class="reveal">
+
+    <div class="section-title">
+        <h2>Práticas Sustentáveis</h2>
+        <p>Atitudes que fortalecem a produção agrícola.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3> Conservação do Solo</h3>
+            <p>
+                Utilização de cobertura vegetal, rotação de culturas e plantio
+                direto para reduzir erosões e preservar nutrientes.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3> Uso Inteligente da Água</h3>
+            <p>
+                Sistemas de irrigação eficientes ajudam a economizar água,
+                aumentar a produtividade e reduzir impactos ambientais.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3> Agricultura de Precisão</h3>
+            <p>
+                Sensores, drones e monitoramento digital permitem aplicar
+                recursos apenas onde são necessários.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3> Preservação Ambiental</h3>
+            <p>
+                Proteção de matas ciliares, nascentes e áreas de reserva
+                contribui para o equilíbrio ecológico.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stats-container">
+
+        <div class="stat">
+            <h3 class="counter" data-target="85">0</h3>
+            <p>Uso eficiente de recursos</p>
+        </div>
+
+        <div class="stat">
+            <h3 class="counter" data-target="70">0</h3>
+            <p>Redução de desperdícios</p>
+        </div>
+
+        <div class="stat">
+            <h3 class="counter" data-target="90">0</h3>
+            <p>Potencial de produtividade</p>
+        </div>
+
+        <div class="stat">
+            <h3 class="counter" data-target="100">0</h3>
+            <p>Compromisso com o futuro</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="conselhos" class="advice reveal">
+
+    <div class="section-title">
+        <h2>Conselhos para um Agro Sustentável</h2>
+    </div>
+
+    <div class="advice-box">
+
+        <p>
+            O futuro da agricultura depende da capacidade de unir produtividade
+            e responsabilidade ambiental. Um dos principais conselhos para
+            produtores é investir continuamente em conhecimento e inovação.
+            Novas tecnologias permitem monitorar lavouras com maior precisão,
+            reduzir desperdícios e aumentar a eficiência dos recursos.
+        </p>
+
+        <br>
+
+        <p>
+            Outro aspecto fundamental é a preservação do solo. Solos saudáveis
+            armazenam mais água, apresentam maior fertilidade e garantem melhor
+            produtividade ao longo dos anos. Técnicas como rotação de culturas,
+            plantio direto e adubação orgânica ajudam a manter a qualidade do
+            terreno.
+        </p>
+
+        <br>
+
+        <p>
+            A gestão da água também merece atenção especial. A adoção de
+            sistemas modernos de irrigação e o monitoramento do consumo evitam
+            desperdícios e contribuem para a preservação desse recurso vital.
+        </p>
+
+        <br>
+
+        <p>
+            A biodiversidade deve ser valorizada como uma aliada da produção.
+            Áreas verdes preservadas ajudam no equilíbrio climático, na
+            polinização das culturas e na proteção dos recursos hídricos.
+        </p>
+
+        <br>
+
+        <p>
+            Por fim, é importante compreender que sustentabilidade não é apenas
+            uma obrigação ambiental, mas uma estratégia de crescimento.
+            Propriedades sustentáveis costumam apresentar maior eficiência,
+            melhor reputação no mercado e maior capacidade de adaptação às
+            mudanças climáticas e econômicas.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+</section>
+
+<footer>
+   
+
+        Equilíbrio entre produção e meio ambiente para construir um amanhã melhor.
+    </p>
+</footer>
+
+<script>
+
+/* REVELAR ELEMENTOS AO ROLAR */
+
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+
+    reveals.forEach(item => {
+
+        const top = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if(top < windowHeight - 100){
+            item.classList.add("active");
+        }
+
+    });
+
+});
+
+/* CONTADORES ANIMADOS */
+
+const counters = document.querySelectorAll(".counter");
+
+const startCounter = () => {
+
+    counters.forEach(counter => {
+
+        const target = +counter.getAttribute("data-target");
+
+        const update = () => {
+
+            const current = +counter.innerText;
+
+            const increment = target / 100;
+
+            if(current < target){
+                counter.innerText =
+                Math.ceil(current + increment);
+
+                setTimeout(update, 20);
+            }
+            else{
+                counter.innerText = target + "%";
+            }
+        }
+
+        update();
+    });
+}
+
+let started = false;
+
+window.addEventListener("scroll", () => {
+
+    const stats = document.querySelector(".stats");
+
+    const top = stats.getBoundingClientRect().top;
+
+    if(top < window.innerHeight && !started){
+
+        startCounter();
+        started = true;
+    }
+
+});
+
+</script>
+
+</body>
+</html>
